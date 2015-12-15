@@ -13,6 +13,7 @@ class NEAT {
 public:
     NEAT(int inputs, int outputs);
     void populate();
+    std::vector<NEATNetwork> get_networks();
 
     void inline set_desired_population_size(unsigned size) { desired_population_size_=size; }
     unsigned inline get_desired_population_size() { return desired_population_size_; }

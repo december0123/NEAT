@@ -1,5 +1,6 @@
 #include "headers/neat.hpp"
 #include "headers/neatgenome.hpp"
+#include "headers/neatnetwork.hpp"
 
 NEATGenome::NEATGenome(NEAT& neat) : neat_(neat)
 {
@@ -31,4 +32,9 @@ void NEATGenome::add_link(
         enabled,
         recurrent
     ));
+}
+
+NEATNetwork NEATGenome::to_network()
+{
+    
 }

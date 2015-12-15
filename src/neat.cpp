@@ -63,3 +63,12 @@ void NEAT::populate()
         }
     }
 }
+
+std::vector<NEATNetwork> NEAT::get_networks()
+{
+    std::vector<NEATNetwork> networks;
+    for(auto s: species_)
+        for(auto genome: s)
+            networks.push_back(genome.to_network());
+    return networks;
+}

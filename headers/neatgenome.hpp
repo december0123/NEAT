@@ -7,6 +7,7 @@
 #include "headers/neatlinkgene.hpp"
 #include "headers/neatneurongene.hpp"
 
+class NEATNetwork;
 class NEAT;
 
 using Neurons = std::map<unsigned, NEATNeuronGene>;
@@ -25,6 +26,7 @@ public:
         bool recurrent=false,
         bool enabled=true
     );
+    NEATNetwork to_network();
 private:
     NEAT& neat_;
     Neurons neurons_;
