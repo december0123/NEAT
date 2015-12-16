@@ -1,6 +1,6 @@
 #include "headers/neatinnovationdatabase.hpp"
 
-NEATInnovationDatabase::NEATInnovationDatabase(const NEAT& neat) : neat_(neat)
+NEATInnovationDatabase::NEATInnovationDatabase(NEAT& neat) : neat_(neat)
 {
     
 }
@@ -10,28 +10,28 @@ unsigned NEATInnovationDatabase::get_id_for_link_innovation(
 ) {
     auto innovation = NEATLinkInnovation(from_neuron, to_neuron, recurrent);
     auto iterator = link_innovations_.find(innovation);
-    if(iterator==link_innovations_::end)
+    if(iterator==link_innovations_.end())
     {
         link_innovations_[innovation] = ++global_innovation_counter_;
         return global_innovation_counter_;
     }
-    return *iterator;
+    return iterator->second;
 }
 
-NEATInnovationDatabase::get_id_for_neuron_innovation(
+unsigned NEATInnovationDatabase::get_id_for_neuron_innovation(
     unsigned from_neuron, unsigned to_neuron
 ) {
     auto innovation = NEATNeuronInnovation(from_neuron, to_neuron);
     auto iterator = neuron_innovations_.find(innovation);
-    if(iterator==neuron_innovations_::end)
+    if(iterator==neuron_innovations_.end())
     {
         neuron_innovations_[innovation] = ++global_innovation_counter_;
         return global_innovation_counter_;
     }
-    return *iterator;
+    return iterator->second;
 }
 
-NEATInnovationDatabase::get_id_for_neuron_innovation()
+unsigned NEATInnovationDatabase::get_id_for_neuron_innovation()
 {
     return ++global_innovation_counter_;
 }

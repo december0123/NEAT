@@ -13,6 +13,8 @@ public:
     PyNEAT(int inputs, int outputs);
     void populate();
     py::list get_networks();
+    void set_desired_population_size(int size);
+    unsigned get_desired_population_size();
 private:
     NEAT neat_;
 };

@@ -3,13 +3,14 @@
 
 #include <map>
 
-#include "headers/neat.hpp"
+class NEAT;
+
 #include "headers/neatlinkinnovation.hpp"
 #include "headers/neatneuroninnovation.hpp"
 
 class NEATInnovationDatabase {
 public:
-    NEATInnovationDatabase(const NEAT& neat);
+    NEATInnovationDatabase(NEAT& neat);
     
     // returns proper id (new/existing matching) for new link
     unsigned get_id_for_link_innovation(unsigned from_neuron, unsigned to_neuron, bool recurrent);
@@ -23,8 +24,8 @@ public:
 private:
     NEAT& neat_;
     unsigned global_innovation_counter_=0;
-    std::map<NEATNeuronInnovation, unsigned> neuron_innovations_;
     std::map<NEATLinkInnovation, unsigned> link_innovations_;
+    std::map<NEATNeuronInnovation, unsigned> neuron_innovations_;
 };
 
 #endif //__NEATINNOVATIONDATABASE_HPP__

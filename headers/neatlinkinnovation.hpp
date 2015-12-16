@@ -3,7 +3,7 @@
 
 class NEATLinkInnovation {
 public:
-    NEATLinkInnovation(unsigned from_neuron, unsigned to_neuron);
+    NEATLinkInnovation(unsigned from_neuron, unsigned to_neuron, bool recurrent);
     bool operator<(const NEATLinkInnovation& other) const;
 private:
     unsigned from_neuron_;
