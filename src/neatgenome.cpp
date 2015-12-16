@@ -36,5 +36,5 @@ void NEATGenome::add_link(
 
 NEATNetwork NEATGenome::to_network()
 {
-    
+    return NEATNetwork();
 }
