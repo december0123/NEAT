@@ -22,8 +22,8 @@ void NEATGenome::add_link(
     unsigned from_neuron,
     unsigned to_neuron,
     float weight,
-    bool recurrent=false,
-    bool enabled=true
+    bool recurrent,
+    bool enabled
 ) {
     links_.emplace(innovation_id, NEATLinkGene(
         weight,

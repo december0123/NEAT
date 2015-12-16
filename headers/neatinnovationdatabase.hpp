@@ -3,10 +3,9 @@
 
 #include <map>
 
-class NEAT;
-
-#include "headers/neatneuroninnovation.hpp"
+#include "headers/neat.hpp"
 #include "headers/neatlinkinnovation.hpp"
+#include "headers/neatneuroninnovation.hpp"
 
 class NEATInnovationDatabase {
 public:
@@ -24,8 +23,8 @@ public:
 private:
     NEAT& neat_;
     unsigned global_innovation_counter_=0;
-    std::map<NEATLinkInnovation, unsigned> link_innovations_;
     std::map<NEATNeuronInnovation, unsigned> neuron_innovations_;
+    std::map<NEATLinkInnovation, unsigned> link_innovations_;
 };
 
 #endif //__NEATINNOVATIONDATABASE_HPP__

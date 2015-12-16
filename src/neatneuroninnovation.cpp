@@ -9,7 +9,7 @@ bool NEATNeuronInnovation::operator<(const NEATNeuronInnovation& other) const
 {
     if(from_neuron_<other.from_neuron_)
         return true;
-    else if(from_neuron_>other.from_neuron_)
+    if(from_neuron_>other.from_neuron_)
         return false;
     if(to_neuron_<other.to_neuron_)
         return true;

@@ -1,6 +1,7 @@
 #include <random>
 
 #include "headers/neat.hpp"
+#include "headers/neatnetwork.hpp"
 #include "headers/neatneurongene.hpp"
 
 NEAT::NEAT(int inputs, int outputs)
@@ -67,8 +68,8 @@ void NEAT::populate()
 std::vector<NEATNetwork> NEAT::get_networks()
 {
     std::vector<NEATNetwork> networks;
-    for(auto s: species_)
-        for(auto genome: s)
-            networks.push_back(genome.to_network());
+    for(auto species: population_)
+        for(auto genome: species)
+            networks.push_back(std::move(genome.to_network()));
     return networks;
 }
